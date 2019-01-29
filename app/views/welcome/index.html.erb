@@ -1,48 +1,29 @@
 
   <div class='container'>
+    <% @questions.each do |q| %>
+        <div class='container bg-light p-4 m-4'>
+            <div class="media  ">
+                <img src='<%= q.gravatar %>' class="mr-3" alt="...">
+                <div class="media-body">
+                    <div class="mt-0"><%= q.email %> asked:</div>
+                    <hr>
+                    <div class="small"><%= time_ago_in_words q.created_at %> ago</div>
+                    <h5><%= q.body %></h5>
+                    <div class='mt-2'>
+                        <a href='<%= question_path(q) %>'>
+                            <button type="button" class="btn btn-success btn-sm">View Answers</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
 
-    <div class="media mt-4">
-        <img src='../../assets/deathstar.png' class="mr-3" alt="...">
-        <div class="media-body">
-            <h5 class="mt-0">user: username@email.com asked:</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus 
-            scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, 
-            tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate 
-            fringilla. Donec lacinia congue felis in faucibus.
-            <div class='mt-2'>
-                <a href='questions/12'>
-                    <button type="button" class="btn btn-success btn-sm">View Answers</button>
-                </a>
-            </div>
-        
-        </div>
-        
+    <% if @questions.empty? %>
+    <div class='mt-5'> 
+        <div class='alert alert-info'>No questions here yet. Go ahead, ask one!</div>
     </div>
-    <hr>
-    <div class="media mt-4">
-        <img src='../../assets/deathstar.png' class="mr-3" alt="...">
-        <div class="media-body">
-            <h5 class="mt-0">user: username@email.com asked:</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            <div class='mt-2'>
-                <a href='questions/12'>
-                    <button type="button" class="btn btn-success btn-sm">View Answers</button>
-                </a>
-            </div>
-        </div>
+    <% end %>
     </div>
-    <hr>
-    <div class="media mt-4">
-        <img src='../../assets/deathstar.png' class="mr-2" alt="...">
-        <div class="media-body">
-            <h5 class="mt-0">user: username@email.com asked:</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            <div class='mt-2'>
-                <a href='questions/12'>
-                    <button type="button" class="btn btn-success btn-sm">View Answers</button>
-                </a>
-            </div>    
-        </div>
-    </div>
-</div>
+
   

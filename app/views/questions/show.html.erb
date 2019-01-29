@@ -1,0 +1,38 @@
+<div class='lead well'>
+    <div class="media mt-4">
+        <img src='<%= @question.gravatar %>' class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0">user: <%= @question.email %> asked:</h5>
+            <%= @question.body %>
+               
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="m-4">
+        <button class="btn btn-primary"
+        data-toggle="modal" data-target="#new-answer-modal" type="button">Submit an Answer</button>
+    </div>
+</div> 
+<%= render 'welcome/new_answer_form' %>
+<hr>
+<% @answers.each do |answer| %>
+<div class='container'>
+    <div class="media mt-4">
+        <img src='<%= answer.gravatar %>' class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0">user: <%= answer.email %> answered:</h5>
+            <div class='small'><%= time_ago_in_words answer.created_at %> ago</div>
+            <%= answer.body %>
+        </div>
+    </div>
+</div>
+<% end %> 
+
+<% if @answers.empty? %>
+    <div class='mt-5'> 
+        <div class='alert alert-info'>No answers here yet. Go ahead, answer one!</div>
+    </div>
+<% end %>
+    

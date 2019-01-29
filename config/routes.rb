@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :questions
+  
   root 'welcome#index'
 
   get '/about' => 'welcome#about'
