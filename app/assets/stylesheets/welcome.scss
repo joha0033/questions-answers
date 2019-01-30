@@ -1,3 +1,28 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.boxes {
+    .media {
+        border: thin solid #f4f4f4;
+        border-radius: 1em;
+        padding: 1em;
+        background-color: #eee;
+        position: relative;
+        height: 8em;
+        .time {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            color: #666;
+        }
+        .answer-btn {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: #ddd;
+        }
+    }
+}

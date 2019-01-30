@@ -1,17 +1,17 @@
 
   <div class='container'>
     <% @questions.each do |q| %>
-        <div class='container bg-light p-4 m-4'>
-            <div class="media  ">
-                <img src='<%= q.gravatar %>' class="mr-3" alt="...">
+        <div class='boxes' data-target='<%= question_path(q) %>'>
+            <div class="media m-3" >
+                <img src='<%= q.gravatar %>' class="mr-3 d-none d-md-block" alt="...">
                 <div class="media-body">
                     <div class="mt-0"><%= q.email %> asked:</div>
                     <hr>
-                    <div class="small"><%= time_ago_in_words q.created_at %> ago</div>
-                    <h5><%= q.body %></h5>
-                    <div class='mt-2'>
+                    <div class="small time d-sm-none d-none d-md-block"><%= time_ago_in_words q.created_at %> ago</div>
+                    <h5><%= truncate q.body, length: 150%></h5>
+                    <div class='mt-2 d-sm-none d-none d-md-block'>
                         <a href='<%= question_path(q) %>'>
-                            <button type="button" class="btn btn-success btn-sm">View Answers</button>
+                            <button type="button" class="answer-btn btn btn-success btn-sm">View Answers</button>
                         </a>
                     </div>
                 </div>
